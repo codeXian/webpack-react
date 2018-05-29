@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import vis from "vis";
-import styles from "./VisComponent.css";
+import styles from "./index.css";
 
 const nodes = [
   {
@@ -77,20 +77,62 @@ const nodes = [
 ];
 
 const edges = [
-  { from: 1, to: 2 },
-  { from: 2, to: 3 },
-  { from: 2, to: 4 },
-  { from: 4, to: 5 },
-  { from: 4, to: 10 },
-  { from: 4, to: 6 },
-  { from: 6, to: 7 },
-  { from: 7, to: 8 },
-  { from: 8, to: 9 },
-  { from: 8, to: 10 },
-  { from: 10, to: 11 },
-  { from: 11, to: 12 },
-  { from: 12, to: 13 },
-  { from: 13, to: 14 }
+  {
+    from: 1,
+    to: 2
+  },
+  {
+    from: 2,
+    to: 3
+  },
+  {
+    from: 2,
+    to: 4
+  },
+  {
+    from: 4,
+    to: 5
+  },
+  {
+    from: 4,
+    to: 10
+  },
+  {
+    from: 4,
+    to: 6
+  },
+  {
+    from: 6,
+    to: 7
+  },
+  {
+    from: 7,
+    to: 8
+  },
+  {
+    from: 8,
+    to: 9
+  },
+  {
+    from: 8,
+    to: 10
+  },
+  {
+    from: 10,
+    to: 11
+  },
+  {
+    from: 11,
+    to: 12
+  },
+  {
+    from: 12,
+    to: 13
+  },
+  {
+    from: 13,
+    to: 14
+  }
 ];
 
 export default class VisComponent extends Component {
@@ -111,18 +153,28 @@ export default class VisComponent extends Component {
           border: "#222222",
           background: "#666666"
         },
-        font: { color: "#eeeeee" }
+        font: {
+          color: "#eeeeee"
+        }
       },
       edges: {
         color: "lightgray"
       }
     };
     const network = new vis.Network(container, data, options);
+    network.on("oncontext", function(params) {
+      console.log(
+        network.getNodeAt({
+          x: params.pointer.DOM.x,
+          y: params.pointer.DOM.y
+        })
+      );
+    });
   }
   render() {
     return (
       <div ref={vis => (this.vis = vis)} className={styles.wrapper}>
-        我是visComponent
+        我是visComponent{" "}
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import VisComponent from "./components/VisComponent";
+import VisComponent from "./components/Vis";
 
 export default class App extends Component {
   render() {

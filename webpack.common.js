@@ -1,5 +1,6 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const webpack = require('webpack');
 
 module.exports = {
   module: {
@@ -30,6 +31,14 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: 'index.html'
-    })
+    }),
+    // new webpack.DllReferencePlugin({
+    //   context: __dirname,
+    //   manifest: require('./manifest/react-manifest.json')
+    // }),
+    // new webpack.DllReferencePlugin({
+    //   context: __dirname,
+    //   manifest: require('./manifest/vis-manifest.json')
+    // }),
   ]
 }

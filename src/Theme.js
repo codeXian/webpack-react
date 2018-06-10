@@ -1,6 +1,6 @@
-import { Button, Layout, Modal } from "antd";
-import React, { PureComponent } from "react";
-import styles from "./Theme.css";
+import { Button, Layout, Modal } from 'antd';
+import React, { PureComponent } from 'react';
+import styles from './Theme.css';
 
 const { Header, Footer, Content } = Layout;
 
